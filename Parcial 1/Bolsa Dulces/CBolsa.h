@@ -1,4 +1,4 @@
-#include<stdio.h>
+#include <stdio.h>
 
 class CBolsa{
     private:
@@ -9,12 +9,18 @@ class CBolsa{
         int Totales;
 
     public:
-        CBolsa(int azules, int rojos, int verdes){
-            Azules = azules;
+        CBolsa(){
+            Azules = 0;
+            Rojos = 0;
+            Verdes = 0;
+
+            Totales = 0;
+        }
+
+        CBolsa(int azul, int rojos, int verdes){
+            Azules = azul;
             Rojos = rojos;
             Verdes = verdes;
-
-            Totales = Azules + Verdes + Rojos;
         }
 
         int MeterDulces(int color, int cantidad){
