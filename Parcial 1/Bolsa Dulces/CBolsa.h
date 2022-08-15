@@ -1,37 +1,42 @@
 #include <stdio.h>
 
-class CBolsa{
-    private:
+class CDulces{
+    public:
         int Azules;
         int Rojos;
         int Verdes;
 
         int Totales;
+};
+
+class CBolsa{
+    private:
+        CDulces dulcesitos;
 
     public:
         CBolsa(){
-            Azules = 0;
-            Rojos = 0;
-            Verdes = 0;
+            dulcesitos.Azules = 0;
+            dulcesitos.Rojos = 0;
+            dulcesitos.Verdes = 0;
 
-            Totales = 0;
+            dulcesitos.Totales = 0;
         }
 
         CBolsa(int azul, int rojos, int verdes){
-            Azules = azul;
-            Rojos = rojos;
-            Verdes = verdes;
+            dulcesitos.Azules = azul;
+            dulcesitos.Rojos = rojos;
+            dulcesitos.Verdes = verdes;
         }
 
         int MeterDulces(int color, int cantidad){
             if(color == 1){
-                Azules = Azules + cantidad;
+                dulcesitos.Azules = dulcesitos.Azules + cantidad;
             }
             else if(color == 2){
-                Rojos = Rojos + cantidad;
+                dulcesitos.Rojos = dulcesitos.Rojos + cantidad;
             }
             else if(color == 3){
-                Verdes = Verdes + cantidad;
+                dulcesitos.Verdes = dulcesitos.Verdes + cantidad;
             }
             else{
                 printf("\nDulces no insertados por opcion incorrecta");
@@ -41,13 +46,13 @@ class CBolsa{
         
         int SacarDulces(int color, int cantidad){
             if(color == 1){
-                Azules = Azules - cantidad;
+                dulcesitos.Azules = dulcesitos.Azules - cantidad;
             }
             else if(color == 2){
-                Rojos = Rojos - cantidad;
+                dulcesitos.Rojos = dulcesitos.Rojos - cantidad;
             }
             else if(color == 3){
-                Verdes = Verdes - cantidad;
+                dulcesitos.Verdes = dulcesitos.Verdes - cantidad;
             }
             else{
                 printf("\nDulces no quitados por opcion incorrecta");
@@ -56,9 +61,9 @@ class CBolsa{
         }
 
         void Imprimir(){
-            printf("\nDulces Azules: %d", Azules);
-            printf("\nDulces Rojos: %d", Rojos);
-            printf("\nDulces Verdes: %d", Verdes);
+            printf("\nDulces Azules: %d", dulcesitos.Azules);
+            printf("\nDulces Rojos: %d", dulcesitos.Rojos);
+            printf("\nDulces Verdes: %d", dulcesitos.Verdes);
         }
 
 };
