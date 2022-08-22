@@ -14,12 +14,12 @@ int main(){
     Conjunto c;
     c.Add(5);
     c.Add(8);
-    c.Add(15);
-    c.Add(16);
+    c.Add(56);
 
     Operaciones op;
-    Conjunto b = op.Interseccion(a,c);
-    b.Print();
+    bool resultado = op.isSubset(a,c);
+    
+    cout << resultado << endl;
     
     return 0;
 }

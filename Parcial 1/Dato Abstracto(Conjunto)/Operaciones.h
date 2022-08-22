@@ -46,5 +46,41 @@ Conjunto Operaciones::CreateEmptySet(){
 }
 
 bool Operaciones::isSubset(Conjunto a, Conjunto b){
-
+    int aux;
+    if(a.Size() > b.Size()){
+        aux = b.Size();
+        for(int i = 0; i < b.Size(); i++){
+            for(int j = 0; j < a.Size(); j++){
+                if(b.Get(i) == a.Get(j)){
+                    aux--;
+                    break;
+                }
+            }
+        }
+        
+        if(aux == 0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    else{
+        aux = a.Size();
+        for(int i = 0; i < a.Size(); i++){
+            for(int j = 0; j < b.Size(); j++){
+                if(b.Get(j) == a.Get(i)){
+                    aux--;
+                    break;
+                }
+            }
+        }
+        
+        if(aux == 0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }
