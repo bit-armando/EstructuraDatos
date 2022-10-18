@@ -3,6 +3,7 @@
 template <class T> class ListaSimple{
     private:
         Node<T> *head;
+        Node<T> *tail;
         int size;
 
     public:

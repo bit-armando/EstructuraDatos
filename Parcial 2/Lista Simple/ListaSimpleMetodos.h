@@ -3,6 +3,7 @@
 template<class T> ListaSimple<T>::ListaSimple(){
     size = 0;
     head = NULL;
+    tail = NULL;
 }
 
 template <class T> ListaSimple<T>::~ListaSimple(){}
@@ -11,6 +12,9 @@ template<class T> void ListaSimple<T>::insertFirst(T data){
     Node<T> *newNode = new Node<T>(data);
     newNode->setNext(head);
     head = newNode;
+    if(size == 0){
+        tail = head;
+    }
 
     size++;
 }
@@ -45,21 +49,14 @@ template<class T> void ListaSimple<T>::insertLast(T data){
     }
 
     Node<T> *last = this->getLast();
-    last->setNext(new Node<T>(data));
+    Node<T> *aux = new Node<T>(data);
+    last->setNext(aux);
+    tail = aux;
     size++;
 }
 
 template<class T> Node<T> *ListaSimple<T>::getLast(){
-    Node<T> *p = head;
-
-    if (p == NULL){
-        throw "Error, Lista Vacia";
-        return NULL;
-    }
-
-    while(p->getNext() != NULL){p = p->getNext();}
-
-    return p;
+    return tail;
 }
 
 template <class T> void ListaSimple<T>::insertAfter(Node<T> *previous, T data){
