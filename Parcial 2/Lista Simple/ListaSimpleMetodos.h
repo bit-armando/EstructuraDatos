@@ -63,8 +63,14 @@ template <class T> void ListaSimple<T>::insertAfter(Node<T> *previous, T data){
     Node<T> *newNode;
     newNode = new Node<T>(data);
 
-    newNode->setNext(previous->getNext());
-    previous->setNext(newNode);
+    if(previous == tail){
+        tail = newNode;
+        previous->setNext(newNode);
+    }
+    else{
+        newNode->setNext(previous->getNext());
+        previous->setNext(newNode);
+    }
     size++;
 }
 

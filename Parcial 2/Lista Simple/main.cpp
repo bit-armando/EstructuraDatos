@@ -8,8 +8,10 @@ int main(){
     a.insertLast(1);
     a.insertLast(2);
 
-    // Node <int> *holi = a.search(16);
-    // a.insertAfter(holi,50);
+    Node <int> *holi = a.search(2);
+    a.insertAfter(holi,50);
+
+    a.insertLast(3);
 
 
     a.Print();
