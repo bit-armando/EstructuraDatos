@@ -2,13 +2,19 @@
 
 int main(){
     ListaDobleCircular<int> list;
-    // Node<T>* prev;
+    
 
     list.insert(1);
     list.insert(4);
     list.insert(8);
 
+    // Node<int> *aux;
+    // aux = list.search(1);
 
-    list.PrintBackward();
+    // list.insert(aux,200);
+
+    list.PrintForward();
+
+    
     return 0;
 }

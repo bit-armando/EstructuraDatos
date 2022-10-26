@@ -20,7 +20,7 @@ template <class T> class ListaDoble{
         Node<T> *search(T data);//
         Node<T> *get(int position);//
 
-        void deleteNode(T data);//****
+        void deleteNode(T data);//
 
         bool isEmpty();//
         void deleteList();//

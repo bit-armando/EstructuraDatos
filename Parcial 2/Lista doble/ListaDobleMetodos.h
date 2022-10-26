@@ -10,7 +10,7 @@ template <class T> ListaDoble<T>::~ListaDoble(){}
 
 template <class T> void ListaDoble<T>::insertFirst(T data){
     Node<T>* newNode = new Node<T>(data);
-    newNode.setNext(head);
+    newNode->setNext(head);
 
     if(head == NULL){
         tail = head = newNode;
@@ -23,23 +23,23 @@ template <class T> void ListaDoble<T>::insertFirst(T data){
 }
 
 template <class T> void ListaDoble<T>::insertAfter(Node<T> *previus, T data){
-    Node<T> newNode = new Node<T>(data);
-    newNode.setNext(previous.getNext());
+    Node<T> *newNode = new Node<T>(data);
+    newNode->setNext(previus->getNext());
 
-    if(previous.getNext() != NULL){
-        previous->setNext()->setPrev(newNode);
+    if(previus->getNext() != NULL){
+        previus->getNext()->setPrev(newNode);
     }
     else{
         tail = newNode;
     }
 
-    previous->setNext(newNode);
-    newNode->setPrev(previous);
+    previus->setNext(newNode);
+    newNode->setPrev(previus);
     size++;
 }
 
 template <class T> void ListaDoble<T>::insertLast(T data){
-    Node<T> newNode = new Node<T>(data);
+    Node<T> *newNode = new Node<T>(data);
 
     tail->setNext(newNode);
     newNode->setPrev(tail);
@@ -48,11 +48,15 @@ template <class T> void ListaDoble<T>::insertLast(T data){
     size++;
 }
 
-template <class T> void ListaDoble<T>::deleteNode(T data){//**********
+template <class T> void ListaDoble<T>::deleteNode(T data){
     Node<T> *actual = head;
 
-    if(actual == head){
+    if(actual == head && actual->getData() == data){
         head = actual->getNext();
+    }
+
+    while(actual->getData() != data && actual->getNext() != NULL){
+        actual = actual->getNext();
     }
 
     if(actual->getNext() != NULL){
@@ -61,11 +65,12 @@ template <class T> void ListaDoble<T>::deleteNode(T data){//**********
     else{
         tail = actual->getPrev();
     }
-
+    
     if(actual->getPrev() != NULL){
         actual->getPrev()->setNext(actual->getNext());
     }
 
+    size--;
     delete actual;
 }
 

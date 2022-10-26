@@ -67,6 +67,7 @@ template <class T> void ListaDobleCircular<T>::deleteList(){
     }while(p != head);
 
     head = NULL;
+    size == 0;
 }
 
 template <class T> bool ListaDobleCircular<T>::isEmpty(){
