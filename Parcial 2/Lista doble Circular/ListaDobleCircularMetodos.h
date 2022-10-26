@@ -24,7 +24,7 @@ template <class T> void ListaDobleCircular<T>::deleteNode(T data){
     Node<T> *actual = head;
     bool found = false;
 
-    while((actual->getNext()->getData() == data) && (!found)){
+    while((actual->getNext() != head) && (!found)){
         found = (actual->getNext()->getData() == data);
         if(!found){
             actual = actual->getNext();
@@ -36,13 +36,10 @@ template <class T> void ListaDobleCircular<T>::deleteNode(T data){
         Node<T> *p;
         p = actual->getNext();
 
-        if(head == head->getNext()){
-            head = NULL;
-        }
+        if(head == head->getNext()){head = NULL;}
         else{
-            if(p == head){
-                head = actual;
-            }
+            if(p == head){head = actual;}
+
             actual->setNext(p->getNext());
             p->getNext()->setPrev(p->getPrev());
         }

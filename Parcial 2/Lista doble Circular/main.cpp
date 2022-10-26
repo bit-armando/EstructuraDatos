@@ -7,11 +7,7 @@ int main(){
     list.insert(1);
     list.insert(4);
     list.insert(8);
-
-    // Node<int> *aux;
-    // aux = list.search(1);
-
-    // list.insert(aux,200);
+    list.deleteNode(4);
 
     list.PrintForward();
 
