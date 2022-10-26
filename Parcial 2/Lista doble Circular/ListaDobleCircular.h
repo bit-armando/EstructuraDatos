@@ -5,22 +5,23 @@ using namespace std;
 template <class T> class ListaDobleCircular{
     private:
         Node <T> *head;
+        int size;
     
     public:
-        ListaDobleCircular();
-        ~ListaDobleCircular();
+        ListaDobleCircular();//
+        ~ListaDobleCircular();//
 
-        void insert(T data);
-        void insert(Node<T>* prev, T data);
+        void insert(T data);//
+        void insert(Node<T>* prev, T data);//
 
-        Node<T>* search(T data);
-        Node<T>* get(int position);
+        Node<T>* search(T data);//
+        Node<T>* get(int position);//
 
         void deleteNode(T data);//
-        void deleteList();
+        void deleteList();//
 
-        bool isEmpty();
+        bool isEmpty();//
 
-        void PrintForward();
-        void PrintBackward();
+        void PrintForward();//
+        void PrintBackward();//
 };
