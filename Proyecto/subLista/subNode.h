@@ -5,5 +5,5 @@ template<class T> class subNode{
         subNode* <T> next;
     
     public:
-    
+        
 };

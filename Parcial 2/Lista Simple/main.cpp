@@ -1,6 +1,6 @@
 #include "listaSimpleMetodos.h"
 int main(){
-    ListaSimple<int> a;
+    Grafo<int> a;
     a.insertFirst(15);
     a.insertFirst(16);
     a.insertFirst(20);

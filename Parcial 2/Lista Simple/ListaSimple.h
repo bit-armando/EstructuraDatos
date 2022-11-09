@@ -1,14 +1,14 @@
 #include "Node.h"
 
-template <class T> class ListaSimple{
+template <class T> class Grafo{
     private:
         Node<T> *head;
         Node<T> *tail;
         int size;
 
     public:
-        ListaSimple();//
-        ~ListaSimple();//
+        Grafo();//
+        ~Grafo();//
 
         void insertFirst(T data);//
         void insertLast(T data);//

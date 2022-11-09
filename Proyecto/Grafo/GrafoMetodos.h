@@ -1,4 +1,4 @@
-#include "ListaSimple.h"
+#include "Grafo.h"
 
 template<class T> Grafo<T>::Grafo(){
     size = 0;
@@ -6,9 +6,8 @@ template<class T> Grafo<T>::Grafo(){
     tail = NULL;
 }
 
-template <class T> Grafo<T>::~Grafo(){}
 
-template<class T> void Grafo<T>::insertFirst(T data){
+template<class T> void Grafo<T>::insert(T data){
     Node<T> *newNode = new Node<T>(data);
     newNode->setNext(head);
     head = newNode;
@@ -39,39 +38,6 @@ template<class T> Node<T> *Grafo<T>::search(T data){
         index = index->getNext();
     }
     return NULL;
-}
-
-template<class T> void Grafo<T>::insertLast(T data){
-    //Si head es null agrega un nodo
-    if(head == NULL){
-        this->insertFirst(data);
-        return;
-    }
-
-    Node<T> *last = this->getLast();
-    Node<T> *aux = new Node<T>(data);
-    last->setNext(aux);
-    tail = aux;
-    size++;
-}
-
-template<class T> Node<T> *Grafo<T>::getLast(){
-    return tail;
-}
-
-template <class T> void Grafo<T>::insertAfter(Node<T> *previous, T data){
-    Node<T> *newNode;
-    newNode = new Node<T>(data);
-
-    if(previous == tail){
-        tail = newNode;
-        previous->setNext(newNode);
-    }
-    else{
-        newNode->setNext(previous->getNext());
-        previous->setNext(newNode);
-    }
-    size++;
 }
 
 template <class T> Node<T> *Grafo<T>::get(int position){
