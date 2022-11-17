@@ -27,6 +27,5 @@ template <class T> class ListaDoble{
 
         void Print();//
 
-        int Size();//
-
+        int Size();
 };
