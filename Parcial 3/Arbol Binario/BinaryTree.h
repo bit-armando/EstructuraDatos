@@ -3,11 +3,6 @@
 template <class T> class BinaryTree{
     private:
         Node<T>* root;
-        
-        //Recorridos
-        void preOrder(Node<T>* r);
-        void enOrder(Node<T>* r);
-        void postOrder(Node<T>* r);
     
     public:
         BinaryTree();
@@ -22,11 +17,6 @@ template <class T> class BinaryTree{
         Node<T>* getRightSubTree();
 
         Node<T>* add(Node<T>* leftSubTree, T data, Node<T>* rightSubTree);
-
-        //Recorridos
-        void preOrder();
-        void enOrder();
-        void postOrder();
 };
 
 template <class T> BinaryTree<T>::BinaryTree(){root = NULL;}
@@ -62,45 +52,4 @@ template <class T> Node<T>* BinaryTree<T>::getRightSubTree(){
 
 template <class T> Node<T>* BinaryTree<T>::add(Node<T>* leftSubTree, T data, Node<T>* rightSubTree){
     return new Node<T>(leftSubTree, data, rightSubTree);
-}
-
-//----------------------------------------------------------------
-
-template <class T> void BinaryTree<T>::preOrder(Node<T>* r){
-    if(r != NULL){
-        r->visit();
-        preOrder(r->getLeft());
-        preOrder(r->getRight());
-    }
-}
-
-template <class T> void BinaryTree<T>::preOrder(){
-    preOrder(root);
-    cout<<endl;
-}
-
-template <class T> void BinaryTree<T>::enOrder(Node<T>* r){
-    if(r != NULL){
-        enOrder(r->getLeft());
-        r->visit();
-        enOrder(r->getRight());
-    }
-}
-
-template <class T> void BinaryTree<T>::enOrder(){
-    enOrder(root);
-    cout<<endl;
-}
-
-template <class T> void BinaryTree<T>::postOrder(Node<T>* r){
-    if(r != NULL){
-        postOrder(r->getLeft());
-        postOrder(r->getRight());	
-        r->visit();
-    }
-}
-
-template <class T> void BinaryTree<T>::postOrder(){
-    postOrder(root);
-    cout<<endl;
 }

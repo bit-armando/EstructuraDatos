@@ -19,8 +19,6 @@ template <class T> class Node{
 
         void setLeft(Node<T>* left);
         void setRight(Node<T>* right);
-
-        void visit();
 };
 
 template <class T> Node<T>::Node(T value){
@@ -45,8 +43,6 @@ template<class T> Node<T>* Node<T>::getRight(){return right;}
 template<class T> void Node<T>::setLeft(Node<T>* left){this->left = left;}
 
 template<class T> void Node<T>::setRight(Node<T>* right){this->right = right;}
-
-template <class T> void Node<T>::visit(){cout << data << ", ";}
 
 template class Node<int>;
 template class Node<char>;
