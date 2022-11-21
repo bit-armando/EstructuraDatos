@@ -1,9 +1,15 @@
-template<class T> class subNode{
+template <class T> class subNode{   
     private:
+        subNode<T>* next;
         T to;
-        char arco;
-        subNode* <T> next;
+        char name;
     
     public:
-        
+        Node();
+        Node(T t, char n);
+
+        T getTo();
+
+        subNode<T>* getNext();
+        void setNext(subNode<T>* n);
 };
