@@ -1,4 +1,4 @@
-#include "ListaSimple.h"
+#include "Cola.h"
 
 template<class T> Cola<T>::Cola(){
     size = 0;
@@ -30,18 +30,7 @@ template<class T> void Cola<T>::Print(){
     cout << endl;
 }
 
-template<class T> Node<T> *Cola<T>::search(T data){
-    Node<T> *index;
-
-    index = head;
-    while(index != NULL){
-        if(index->getData() == data){return index;}
-        index = index->getNext();
-    }
-    return NULL;
-}
-
-template<class T> void Cola<T>::insertLast(T data){
+template<class T> void Cola<T>::insert(T data){
     //Si head es null agrega un nodo
     if(head == NULL){
         this->insertFirst(data);
@@ -55,40 +44,15 @@ template<class T> void Cola<T>::insertLast(T data){
     size++;
 }
 
+template <class T> Node<T>* Cola<T>::pop(){
+    Node<T>* aux = head;
+    head = aux->getNext();
+
+    return aux;
+}
+
 template<class T> Node<T> *Cola<T>::getLast(){
     return tail;
-}
-
-template <class T> void Cola<T>::insertAfter(Node<T> *previous, T data){
-    Node<T> *newNode;
-    newNode = new Node<T>(data);
-
-    if(previous == tail){
-        tail = newNode;
-        previous->setNext(newNode);
-    }
-    else{
-        newNode->setNext(previous->getNext());
-        previous->setNext(newNode);
-    }
-    size++;
-}
-
-template <class T> Node<T> *Cola<T>::get(int position){
-    Node<T> *aux;
-    aux = head;
-
-    int i = 1;
-
-    while (aux != NULL && position != i){
-        aux = aux->getNext();
-        i++;
-    }
-    if(aux == NULL){
-        cout << "Nodo no encontrado" <<endl;
-        return NULL;
-    }
-    else{return aux;}
 }
 
 template <class T> void Cola<T>::deleteNode(T data){

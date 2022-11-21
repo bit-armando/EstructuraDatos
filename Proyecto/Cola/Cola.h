@@ -6,17 +6,15 @@ template <class T> class Cola{
         Node<T> *tail;
         int size;
 
+        void insertFirst(T data);//
+        Node<T> *getLast();//
+
     public:
         Cola();//
         ~Cola();//
 
-        void insertFirst(T data);//
-        void insertLast(T data);//
-        void insertAfter(Node<T> *previous,T data);//
-
-        Node<T> *getLast();//
-        Node<T> *search(T data);//
-        Node<T> *get(int position);//
+        void insert(T data);//
+        Node<T> *pop();
 
         void deleteNode(T data);//
 
