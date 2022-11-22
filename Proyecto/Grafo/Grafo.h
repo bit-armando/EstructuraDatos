@@ -1,8 +1,11 @@
 #include "Node.h"
+#include "../Cola/ColaMetodos.h"
 
 template <class T> class Grafo{
     private:
         Node<T> *head;
+        Node<T> *tail;
+        Cola<T> cola;
         int size;
 
     public:
@@ -17,6 +20,8 @@ template <class T> class Grafo{
 
         bool isEmpty();
         void deleteList();
+
+        void rrecorrerAnchura(T inicial);
 
         void Print();
 

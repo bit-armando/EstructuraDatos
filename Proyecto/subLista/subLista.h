@@ -1,11 +1,25 @@
 #include "subNode.h"
 
-template<class T> class subLista{
+template <class T> class subLista{
     private:
-        subNode<T> *head;
-    
+        SubNode<T> *head;
+        SubNode<T> *tail;
+        int size;
+
+        void insertFirst(T data);//
+        SubNode<T> *getLast();//
+
     public:
-        subLista();
-        void insert(T t, char n);
-        subNode<T> *get(int position);
+        subLista();//
+        ~subLista();//
+
+        void insert(T data);//
+        void deleteNode(T data);//
+
+        bool isEmpty();//
+        void deleteList();//
+
+        void Print();//
+
+        int Size();//
 };

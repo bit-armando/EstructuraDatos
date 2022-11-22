@@ -1,12 +1,11 @@
-#include <iostream>
-//#include "../subLista/subListaMetodos.h"
-using namespace std;
+#include "../SubLista/SubListaMetodos.h"
 
 template <class T> class Node {
     private:
         T data;
         Node<T> *next;
-        //subLista<T> *bows;
+        subLista<T> bows;
+        bool visit = false;
    
     public:
         Node(T d);	  
@@ -18,20 +17,26 @@ template <class T> class Node {
         Node<T>* getNext();
         void setNext(Node<T>* n);
 
-        //subLista<T>* getSubLista();
-        //void setSubLista(subLista<T>* sl);
+        void setSubLista(subLista<T> sl);
+        subLista<T> getSubLista();
 };
+
+template<class T> void Node<T>::setSubLista(subLista<T> sl) {
+    bows = sl;
+}
+
+template<class T> subLista<T> Node<T>::getSubLista(){
+    return bows;
+}
 
 template <class T> Node<T>::Node(T d){
     data = d;
     next = NULL;
-    //bows = NULL;
 }
 
 template <class T> Node<T>::Node(T d, Node<T>* n){
     data = d;
     next = n;
-    //bows = NULL;
 }
 
 template <class T> T Node<T>::getData(){

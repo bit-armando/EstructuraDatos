@@ -1,4 +1,4 @@
-#include "Node.h"
+#include "NodeCola.h"
 
 template <class T> class Cola{
     private:

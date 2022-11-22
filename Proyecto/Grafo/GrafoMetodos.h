@@ -102,3 +102,8 @@ template <class T> bool Grafo<T>::isEmpty(){
     if(size == 0){return true;}
     else{return false;}
 }
+
+template <class T> void Grafo<T>::rrecorrerAnchura(T inicial){
+    Node<T> *aux = search(inicial);
+    // while
+}
