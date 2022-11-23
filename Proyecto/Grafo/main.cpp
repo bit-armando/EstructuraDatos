@@ -12,7 +12,7 @@ int main(){
     a.insert('T');
     a.insert('A');
 
-    subLista<char> arcos;
+    subLista<char> arcos, arcos2;
     Node<char> *aux;
     
     //Arcos del nodo D
@@ -20,7 +20,7 @@ int main(){
     arcos.insert('C');
     aux = a.search('D');
     aux->setSubLista(arcos);
-    arcos.deleteList();
+    arcos = arcos2;
 
     //Arcos del nodo B
     arcos.insert('H');
@@ -30,21 +30,21 @@ int main(){
     //Arcos del nodo R
     aux = a.search('R');
     aux->setSubLista(arcos);
-    arcos.deleteList();
+    arcos = arcos2;
 
     //Arcos del nodo C
     arcos.insert('R');
     aux = a.search('C');
     aux->setSubLista(arcos);
-    arcos.deleteList();
+    arcos = arcos2; 
 
     //arcos del nodo H
     arcos.insert('A');
     arcos.insert('T');
     aux = a.search('H');
     aux->setSubLista(arcos);
+    arcos = arcos2;
     
-
     a.rrecorrerAnchura('D');
     return 0;
 }

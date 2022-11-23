@@ -2,19 +2,19 @@
 
 template <class T> class Cola{
     private:
-        Node<T> *head;
-        Node<T> *tail;
+        NodeCola<T> *head;
+        NodeCola<T> *tail;
         int size;
 
         void insertFirst(T data);//
-        Node<T> *getLast();//
+        NodeCola<T> *getLast();//
 
     public:
         Cola();//
         ~Cola();//
 
         void insert(T data);//
-        Node<T> *pop();
+        NodeCola<T> *pop();
 
         void deleteNode(T data);//
 

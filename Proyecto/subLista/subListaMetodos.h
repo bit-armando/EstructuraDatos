@@ -77,20 +77,26 @@ template <class T> void subLista<T>::deleteNode(T data){
     }
 }
 
-template <class T> void subLista<T>::deleteList(){
-    SubNode<T> *current = head;
-    SubNode<T> *next;
-
-    while(current != NULL){
-        next = current->getNext();
-        delete current;
-        current = next;
-    }
-}
-
 template <class T> int subLista<T>::Size(){return size;}
 
 template <class T> bool subLista<T>::isEmpty(){
     if(size == 0){return true;}
     else{return false;}
+}
+
+template <class T> SubNode<T> *subLista<T>::getNode(int position){
+    SubNode<T> *aux;
+    aux = head;
+
+    int i = 1;
+
+    while (aux != NULL && position != i){
+        aux = aux->getNext();
+        i++;
+    }
+    if(aux == NULL){
+        cout << "Nodo no encontrado" <<endl;
+        return NULL;
+    }
+    else{return aux;}
 }

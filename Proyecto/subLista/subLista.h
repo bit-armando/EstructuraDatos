@@ -16,8 +16,9 @@ template <class T> class subLista{
         void insert(T data);//
         void deleteNode(T data);//
 
+        SubNode<T> *getNode(int position);
+
         bool isEmpty();//
-        void deleteList();//
 
         void Print();//
 

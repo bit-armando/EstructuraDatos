@@ -5,9 +5,10 @@ template <class T> class Node {
         T data;
         Node<T> *next;
         subLista<T> bows;
-        bool visit = false;
    
     public:
+        bool visit = false;
+
         Node(T d);	  
         Node(T d, Node<T>* n);
 	  

@@ -9,7 +9,7 @@ template<class T> Cola<T>::Cola(){
 template <class T> Cola<T>::~Cola(){}
 
 template<class T> void Cola<T>::insertFirst(T data){
-    Node<T> *newNode = new Node<T>(data);
+    NodeCola<T> *newNode = new NodeCola<T>(data);
     newNode->setNext(head);
     head = newNode;
     if(size == 0){
@@ -20,7 +20,7 @@ template<class T> void Cola<T>::insertFirst(T data){
 }
 
 template<class T> void Cola<T>::Print(){
-    Node<T> *aux;
+    NodeCola<T> *aux;
 
     aux = head;
     while(aux != NULL){
@@ -37,27 +37,32 @@ template<class T> void Cola<T>::insert(T data){
         return;
     }
 
-    Node<T> *last = this->getLast();
-    Node<T> *aux = new Node<T>(data);
+    NodeCola<T> *last = this->getLast();
+    NodeCola<T> *aux = new NodeCola<T>(data);
     last->setNext(aux);
     tail = aux;
     size++;
 }
 
-template <class T> Node<T>* Cola<T>::pop(){
-    Node<T>* aux = head;
-    head = aux->getNext();
+template <class T> NodeCola<T>* Cola<T>::pop(){
+    NodeCola<T>* aux = head;
+    
+    if(size == 1)
+        head = NULL;
+    else
+        head = aux->getNext();
 
+    size--;
     return aux;
 }
 
-template<class T> Node<T> *Cola<T>::getLast(){
+template<class T> NodeCola<T> *Cola<T>::getLast(){
     return tail;
 }
 
 template <class T> void Cola<T>::deleteNode(T data){
-    Node<T> *actual;
-    Node<T> *previous;
+    NodeCola<T> *actual;
+    NodeCola<T> *previous;
     bool found = false;
     actual = head;
     previous = NULL;
@@ -83,8 +88,8 @@ template <class T> void Cola<T>::deleteNode(T data){
 }
 
 template <class T> void Cola<T>::deleteList(){
-    Node<T> *current = head;
-    Node<T> *next;
+    NodeCola<T> *current = head;
+    NodeCola<T> *next;
 
     while(current != NULL){
         next = current->getNext();

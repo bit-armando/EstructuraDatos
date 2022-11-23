@@ -104,6 +104,29 @@ template <class T> bool Grafo<T>::isEmpty(){
 }
 
 template <class T> void Grafo<T>::rrecorrerAnchura(T inicial){
-    Node<T> *aux = search(inicial);
-    // while
+    Node<T> *actual = search(inicial);
+    char Nodo = actual->getData();
+    
+    //Encolar verice de partida
+    cola.insert(Nodo);
+    //Marcarlo como visitado
+    actual->visit = true;
+    
+    //Mientras la cola no este vacia
+    
+    while(!cola.isEmpty()){
+        Node<T> *aux = search(cola.pop()->getData()); //Desencolar w
+        Nodo = aux->getData();
+        cout << Nodo << ", " ; //Mostrarlo
+
+    
+        subLista<T> adyacentes = aux->getSubLista();
+        for(int i = 0; i < adyacentes.Size(); i++){
+            aux = search(adyacentes.getNode(i+1)->getData());
+            Nodo = aux->getData();
+            if(!aux->visit)
+                cola.insert(Nodo);
+            aux->visit = true; //Marcamos como visitados los nodos adyacentes
+        }
+    }
 }
